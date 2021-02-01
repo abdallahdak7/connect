@@ -3,8 +3,9 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
+import { setAlert } from '../../actions/alert';
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, isAuthenticated, setAlert }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -16,6 +17,10 @@ const Login = ({ login, isAuthenticated }) => {
 
   const onSubmit = async e => {
     e.preventDefault();
+
+    !password && setAlert('Please enter your password.', 'danger', 3000);
+    !email && setAlert('Please enter your email.', 'danger', 3000);
+
     login(email, password);
   };
 
@@ -38,6 +43,7 @@ const Login = ({ login, isAuthenticated }) => {
             name='email'
             value={email}
             onChange={e => onChange(e)}
+            required
           />
         </div>
         <div className='form-group'>
@@ -48,6 +54,7 @@ const Login = ({ login, isAuthenticated }) => {
             minLength='6'
             value={password}
             onChange={e => onChange(e)}
+            required
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Login' />
@@ -68,4 +75,4 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps, { login, setAlert })(Login);
