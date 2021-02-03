@@ -11,6 +11,7 @@ const CreateProfile = ({ createProfile, history }) => {
     location: '',
     status: '',
     skills: '',
+    phonenumber: '',
     githubusername: '',
     bio: '',
     twitter: '',
@@ -27,6 +28,7 @@ const CreateProfile = ({ createProfile, history }) => {
     website,
     location,
     status,
+    phonenumber,
     skills,
     githubusername,
     bio,
@@ -85,6 +87,18 @@ const CreateProfile = ({ createProfile, history }) => {
           />
           <small className='form-text'>
             Could be your own company or one you work for
+          </small>
+        </div>
+        <div className='form-group'>
+          <input
+            type='text'
+            placeholder='Phone Number'
+            name='phonenumber'
+            value={phonenumber}
+            onChange={e => onChange(e)}
+          />
+          <small className='form-text'>
+            Could be your own phone number so we can reach you
           </small>
         </div>
         <div className='form-group'>

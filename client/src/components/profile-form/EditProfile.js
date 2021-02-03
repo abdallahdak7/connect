@@ -15,6 +15,7 @@ const EditProfile = ({
     website: '',
     location: '',
     status: '',
+    phonenumber: '',
     skills: '',
     githubusername: '',
     bio: '',
@@ -35,6 +36,7 @@ const EditProfile = ({
       website: loading || !profile.website ? '' : profile.website,
       location: loading || !profile.location ? '' : profile.location,
       status: loading || !profile.status ? '' : profile.status,
+      phonenumber: loading || !profile.phonenumber ? '' : profile.phonenumber,
       skills: loading || !profile.skills ? '' : profile.skills.join(','),
       githubusername:
         loading || !profile.githubusername ? '' : profile.githubusername,
@@ -53,6 +55,7 @@ const EditProfile = ({
     website,
     location,
     status,
+    phonenumber,
     skills,
     githubusername,
     bio,
@@ -111,6 +114,18 @@ const EditProfile = ({
           />
           <small className='form-text'>
             Could be your own company or one you work for
+          </small>
+        </div>
+        <div className='form-group'>
+          <input
+            type='text'
+            placeholder='PhoneNumber'
+            name='phonenumber'
+            value={phonenumber}
+            onChange={e => onChange(e)}
+          />
+          <small className='form-text'>
+            Could be your own phone number so we can reach you
           </small>
         </div>
         <div className='form-group'>

@@ -1,20 +1,26 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
-const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Navbar = ({ auth: { isAuthenticated, loading }, logout, history }) => {
   const authLinks = (
     <ul>
       <li>
-        <i className='fas fa-user'></i>{' '}
+        <Link to='/profiles'>Developers </Link>
+      </li>
+      <li>
+        <Link to='/posts'>Posts </Link>
+      </li>
+      <li>
         <Link to='/dashboard'>
+          <i className='fas fa-sign-out-alt'></i>{' '}
           <span className='hide-sm'>Dashboard</span>
         </Link>
       </li>
       <li>
-        <a onClick={logout} href='#!'>
+        <a onClick={e => logout(history)} href='#!'>
           <i className='fas fa-sign-out-alt'></i>{' '}
           <span className='hide-sm'>Logout</span>
         </a>
@@ -25,7 +31,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <a href='#!'>Developers</a>
+        <Link to='/profiles'>Developers </Link>
       </li>
       <li>
         <Link to='/register'>Register</Link>
@@ -59,4 +65,4 @@ const mapStateToProps = state => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logout })(Navbar);
+export default connect(mapStateToProps, { logout })(withRouter(Navbar));

@@ -36,9 +36,9 @@ img {
 
 /* Utilities */
 .container {
-  max-width: 1100px;
+  max-width: 1440px;
   margin: auto;
-  overflow: hidden;
+  overflow: auto;
   padding: 0 2rem;
   margin-top: 6rem;
   margin-bottom: 3rem;

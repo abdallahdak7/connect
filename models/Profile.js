@@ -18,6 +18,9 @@ const ProfileSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  phonenumber: {
+    type: String,
+  },
   skills: {
     type: [String],
     required: true,

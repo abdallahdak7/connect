@@ -55,6 +55,7 @@ router.post(
       location,
       bio,
       status,
+      phonenumber,
       githubusername,
       skills,
       youtube,
@@ -72,6 +73,7 @@ router.post(
     if (location) profileFields.location = location;
     if (bio) profileFields.bio = bio;
     if (status) profileFields.status = status;
+    if (phonenumber) profileFields.phonenumber = phonenumber;
     if (githubusername) profileFields.githubusername = githubusername;
     if (skills) {
       profileFields.skills = skills.split(',').map(skill => skill.trim());
@@ -234,7 +236,6 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
     const removeIndex = profile.experience
       .map(item => item.id)
       .indexOf(req.params.exp_id);
-    console.log(removeIndex);
 
     if (removeIndex === -1) {
       return res.json("Experience doesn't exist.");
@@ -355,7 +356,7 @@ router.get('/github/:username', async (req, res) => {
       if (error) console.error(error);
 
       if (response.statusCode !== 200) {
-        return res.status(400).json({ msg: 'no Github profile found' });
+        return res.status(400).json({ msg: 'No Github profile found' });
       }
 
       res.json(JSON.parse(body));
