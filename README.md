@@ -5,7 +5,7 @@ A project where you can create an account and build your own Resume !
 And simply, connect with Developers.
 Make it simple for recruiters to see your skills.
 
-Features:
+#Features:
 LOGIN & REGISTER
 Integration with Github and Gravatar
 Add and Edit Profile / Education / Experience
@@ -41,16 +41,16 @@ nodemon
 -mongoose
 -request
 
-HOW TO USE:
+#HOW TO USE:
 Download the reposity with git clone.
 Simply run : 'npm run server' if you are using npm, due to concurrently package, it will handle the environment for running Express, React and mongoDB !
 By Default Express is running on your localhost PORT:5000/
 by Default React is running on your localhost PORT:3000/
 
-BACKEND End points:
+#BACKEND End points:
 you can test the end-points using POSTMAN or your client side application.
 
-Auth:
+#Auth:
 // @route   GET api/auth
 // @desc    Test route
 // @access  Public
@@ -59,7 +59,7 @@ Auth:
 // @desc    Authenticate user & get token
 // @access  Public
 
-Posts:
+#Posts:
 // @route   POST api/posts
 // @desc    create a post
 // @access  Private
@@ -92,11 +92,52 @@ Posts:
 // @desc    DELETE comment
 // @access  Private
 
+#Users
 
+// @route   POST api/users
+// @desc    register user
+// @access  public
 
+#Profile
 
+// @route   GET api/profile/me
+// @desc    GET current user's profile
+// @access  Private (Protected)
 
+// @route   POST api/profile
+// @desc    Create or Update a user's profile
+// @access  Private (Protected)
 
+// @route   GET api/profile
+// @desc    get all profiles
+// @access  Public
 
+// @route   GET api/profile/user/:user_id
+// @desc    get all user ID
+// @access  Public
 
+// @route   DELETE api/profile
+// @desc    DELETE profile, user & posts
+// @access  Private
 
+// @route   PUT api/profile/experience
+// @desc    ADD profile experience
+// @access  Private
+
+// @route   DELETE api/profile/experience/:exp_id
+// @desc    DELETE experience from profile
+// @access  Private
+
+// @route   PUT api/profile/education
+// @desc    ADD profile education
+// @access  Private
+
+// @route   DELETE api/profile/education/:edu_id
+// @desc    DELETE education from profile
+// @access  Private
+
+// @route   GET api/profile/github/:username
+// @desc    GET user repos from Github
+// @access  Public
+
+#License: MIT
