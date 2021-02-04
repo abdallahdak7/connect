@@ -41,4 +41,62 @@ nodemon
 -mongoose
 -request
 
+HOW TO USE:
+Download the reposity with git clone.
+Simply run : 'npm run server' if you are using npm, due to concurrently package, it will handle the environment for running Express, React and mongoDB !
+By Default Express is running on your localhost PORT:5000/
+by Default React is running on your localhost PORT:3000/
+
+BACKEND End points:
+you can test the end-points using POSTMAN or your client side application.
+
+Auth:
+// @route   GET api/auth
+// @desc    Test route
+// @access  Public
+
+// @route   GET api/auth
+// @desc    Authenticate user & get token
+// @access  Public
+
+Posts:
+// @route   POST api/posts
+// @desc    create a post
+// @access  Private
+
+// @route   GET api/posts
+// @desc    GET all posts
+// @access  Private
+
+// @route   GET api/posts/:id
+// @desc    GET post by ID
+// @access  Private
+
+// @route   DELETE api/posts/:id
+// @desc    DELETE a post
+// @access  Private
+
+// @route   PUT api/posts/like/:id
+// @desc    Like a post
+// @access  Private
+
+// @route   PUT api/posts/unlike/:id
+// @desc    unLike a post
+// @access  Private
+
+// @route   POST api/posts/comment/:id
+// @desc    comment on a post
+// @access  Private
+
+// @route   DELETE api/posts/comment/:id/:comment_id
+// @desc    DELETE comment
+// @access  Private
+
+
+
+
+
+
+
+
 
